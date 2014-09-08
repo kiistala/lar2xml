@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ "a$1" != "a" ]
+  then
+    wait
+  else
+    echo "filename parameter missing"
+    exit 1
+fi
+
+FILE=$1
+DIR="Unzipped_$FILENAME"
+
+./unzip_and_create_tsvs.sh $FILE
+./create_singleXmls_and_fix_em.sh $FILE
+./combine_to_one_xml.sh $FILE
+
+
